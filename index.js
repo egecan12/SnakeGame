@@ -4,10 +4,10 @@
 
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-
+    var delay = 5000;
     canvas.width = 800;
     canvas.height = 500;
-
+    let score = 0;
     const FR = 20; //frame rate
     const S = 20; //screensize
     const T = canvas.width / S;
@@ -18,6 +18,7 @@
         pos = {
             x: 10,
             y: 10
+
         };
         vel = {
             x: 0,
@@ -49,7 +50,7 @@
                 y: 10
             },
         ]
-
+        score = 0;
         randomFood();
     }
 
@@ -73,14 +74,17 @@
     function keydown(e) {
         switch (e.keyCode) {
             case 37: {
+
                 if (vel.x == 1 && vel.y == 0) {
 
                 } else {
                     return vel = {
+
                         x: -1,
                         y: 0
                     }
                 }
+                delay;
             }
             case 38: {
 
@@ -92,6 +96,8 @@
                         y: -1
                     }
                 }
+                delay;
+
 
 
             }
@@ -105,9 +111,12 @@
                         x: 1,
                         y: 0
                     }
-                }
 
-             
+                }
+                delay;
+
+
+
             }
             case 40: {
 
@@ -118,8 +127,10 @@
                         x: 0,
                         y: 1
                     }
+
                 }
-               
+                delay;
+
             }
         }
     }
@@ -143,8 +154,10 @@
         pos.x += vel.x;
         pos.y += vel.y;
 
-        if (pos.x < 0 || pos.x > T || pos.y < 0 || pos.y > Hs) {
+        if (pos.x < 0 || pos.x > T || pos.y < 0 || pos.y > Hs) { //if you touch border
             init();
+            text.innerHTML = 0;
+
         }
 
         if (food.x === pos.x && food.y === pos.y) { //eating the apple 
@@ -154,6 +167,11 @@
             pos.x += vel.x;
             pos.y += vel.y;
             randomFood();
+            score = score + 10;
+            console.log(score);
+            text.innerHTML = score;
+
+
         }
 
         if (vel.x || vel.y) { // if the snake croos itself you die and start again
