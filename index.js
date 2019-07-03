@@ -132,12 +132,15 @@
                 delay;
 
             }
+
+            default: // do nothing;
+                break;
         }
     }
 
-    setInterval(() => {
+    setInterval(() => { // delay when you presed the button
         requestAnimationFrame(gameLoop);
-    }, 1000 / FR);
+    }, 1200 / FR);
 
     function gameLoop() {
         ctx.fillStyle = BG_COLOUR;
