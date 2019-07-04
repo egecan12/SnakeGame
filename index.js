@@ -4,11 +4,11 @@
 
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    var delay = 5000;
+
     canvas.width = 800;
     canvas.height = 500;
     let score = 0;
-    const FR = 20; //frame rate
+    const FR = 24; //frame rate
     const S = 20; //screensize
     const T = canvas.width / S;
     const Hs = canvas.height / S; // I declared that separetly cause otherwise i does not allow me to have succesful random function 
@@ -68,27 +68,37 @@
             }
         }
     }
+    setTimeout(document.addEventListener('keydown', keydown), 2000);
 
-    document.addEventListener('keydown', keydown);
 
     function keydown(e) {
+        var delay = 2000;
         switch (e.keyCode) {
             case 37: {
 
-                if (vel.x == 1 && vel.y == 0) {
+                if ((vel.x == 1 && vel.y == 0)) {
+                    return vel = {
+                        x: 0,
+                        y: -1
+                    }
 
                 } else {
                     return vel = {
 
                         x: -1,
                         y: 0
+
                     }
+
                 }
-                delay;
             }
             case 38: {
 
                 if (vel.x == 0 && vel.y == 1) {
+                    return vel = {
+                        x: -1,
+                        y: 0
+                    }
 
                 } else {
                     return vel = {
@@ -100,11 +110,16 @@
 
 
 
+
             }
             case 39: {
 
 
                 if (vel.x == -1 && vel.y == 0) {
+                    return vel = {
+                        x: 0,
+                        y: -1
+                    }
 
                 } else {
                     return vel = {
@@ -117,10 +132,15 @@
 
 
 
+
             }
             case 40: {
 
                 if (vel.x == 0 && vel.y == -1) {
+                    return vel = {
+                        x: 1,
+                        y: 0
+                    }
 
                 } else {
                     return vel = {
@@ -131,6 +151,7 @@
                 }
                 delay;
 
+
             }
 
             default: // do nothing;
@@ -140,7 +161,7 @@
 
     setInterval(() => { // delay when you presed the button
         requestAnimationFrame(gameLoop);
-    }, 1200 / FR);
+    }, 2000 / FR);
 
     function gameLoop() {
         ctx.fillStyle = BG_COLOUR;

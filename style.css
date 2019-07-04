@@ -12,6 +12,8 @@ html {
 canvas {
 
     border: 10px solid black;
+    position: relative;
+    left: 225px;
 }
 
 
@@ -34,6 +36,5 @@ p {
 }
 
 body {
-    background-image: url("https://images.unsplash.com/photo-1513563568283-f43b7e3d8de5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1943&q=80");
-
+background-color: #003366;
 }
